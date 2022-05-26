@@ -41,7 +41,8 @@ module.exports = {
     lexascms: {
       location: 'vsf-lexascms/server',
       configuration: {
-        spaceId: process.env.LEXASCMS_SPACE_ID
+        spaceId: process.env.LEXASCMS_SPACE_ID,
+        apiKey: process.env.LEXASCMS_API_KEY
       }
     }
   }
