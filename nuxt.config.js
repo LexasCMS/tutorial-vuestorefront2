@@ -59,6 +59,7 @@ export default {
       }
     }],
     ['@vue-storefront/nuxt-theme'],
+    ['vsf-lexascms/nuxt']
   ],
   modules: [
     ['nuxt-i18n', {
