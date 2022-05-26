@@ -3,13 +3,12 @@
     <LazyHydrate when-idle>
       <SfHero class="hero">
         <SfHeroItem
-          v-for="(hero, i) in heroes"
-          :key="i"
-          :title="hero.title"
-          :subtitle="hero.subtitle"
-          :background="hero.background"
-          :image="hero.image"
-          :class="hero.className"
+          v-for="promoBanner in promoBanners"
+          :key="promoBanner.id"
+          :title="promoBanner.heading"
+          :subtitle="promoBanner.subHeading"
+          :button-text="promoBanner.buttonText"
+          :image="promoBanner.backgroundImage.url"
         />
       </SfHero>
     </LazyHydrate>
@@ -123,6 +122,8 @@ import NewsletterModal from '~/components/NewsletterModal.vue';
 import LazyHydrate from 'vue-lazy-hydration';
 import { useUiState } from '../composables';
 import cacheControl from './../helpers/cacheControl';
+import { onSSR } from '@vue-storefront/core';
+import { useContent } from 'vsf-lexascms';
 
 export default {
   name: 'Home',
@@ -282,13 +283,26 @@ export default {
       products.value[index].isInWishlist = !products.value[index].isInWishlist;
     };
 
+    const { content: promoBanners, search } = useContent();
+
+    onSSR(async () => {
+      await search({
+        type: 'collection',
+        contentType: 'promoBanner',
+        params: {
+          include: 'backgroundImage'
+        }
+      });
+    });
+
     return {
       toggleWishlist,
       toggleNewsletterModal,
       onSubscribe,
       banners,
       heroes,
-      products
+      products,
+      promoBanners
     };
   }
 };
