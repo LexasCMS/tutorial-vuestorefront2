@@ -147,7 +147,7 @@ export default {
     NewsletterModal,
     LazyHydrate
   },
-  setup() {
+  setup(_, context) {
     const { $config } = useContext();
     const { toggleNewsletterModal } = useUiState();
     const products = ref([
@@ -291,6 +291,11 @@ export default {
         contentType: 'promoBanner',
         params: {
           include: 'backgroundImage'
+        },
+        context: {
+          audienceAttributes: {
+            localTemperature: context.root.$route.query.localTemp ? parseInt(context.root.$route.query.localTemp, 10) : null
+          }
         }
       });
     });
