@@ -28,4 +28,4 @@ Of course, you can play around with this source code by deploying it to your own
     2. Navigate to **Settings > General** and take note of your space ID
 3. Click the below button and follow the instructions
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLexasCMS%2Ftutorial-vuestorefront2&env=LEXASCMS_SPACE_ID&project-name=lexascms-vuestorefront2-tutorial&repo-name=lexascms-vuestorefront2-tutorial)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLexasCMS%2Ftutorial-vuestorefront2%2Ftree%2Fpart-2-personalisation&env=LEXASCMS_SPACE_ID&project-name=lexascms-vuestorefront2-tutorial&repo-name=lexascms-vuestorefront2-tutorial)
